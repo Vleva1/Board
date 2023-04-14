@@ -48,9 +48,9 @@ INSTALLED_APPS = [
     'board',
     'sign',
 
-    'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
+    # 'allauth',
+    # # 'allauth.account',
+    # # 'allauth.socialaccount',
 
 ]
 
