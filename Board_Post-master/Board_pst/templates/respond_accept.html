@@ -1,0 +1,64 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+Respond accept
+{% endblock title %}
+
+{% block content %}
+
+{% include 'auth.html' %}
+
+<hr>
+
+<h1>Отклик принят</h1>
+
+<hr>
+{% if responds %}
+
+    {% for respond in responds %}
+
+        <table border = 0 width = 100% align = center>
+            <tr>
+                <td><h3>{{ respond.hater }}</h3></td>
+            </tr>
+            <tr>
+                <td><b>{{ respond.date_respond|date:'d.m.Y' }}</b></td>
+            </tr>
+            <tr>
+                <td>{{ respond.text_respond }}</td>
+            </tr>
+            <tr>
+                <td>
+                    {% if not respond.accepted %}
+                        <a href="/board/{{ post.id }}/set_accept?respond_id={{ respond.id }}">Принять</a>
+                    {% else %}
+                        Принят
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if not respond.deleted %}
+                        <a href="/board/{{ post.id }}/set_delete?respond_id={{ respond.id }}">Удалить</a>
+                    {% else %}
+                        Удален
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    {% endfor %}
+
+{% else %}
+    <h3>Откликов нет</h3>
+{% endif %}
+
+{% endblock content %}
+
+
+
+
+
+
+
+

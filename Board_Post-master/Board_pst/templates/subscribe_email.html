@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <h2>Новость: {{ post.post_title }}</h2>
+        {% for post in posted %}
+            <hr>
+            <a href="http://{{ domain }}/posts/{{ post.id }}">{{ post.post_title|truncatechars:50 }}</a>
+        {% endfor %}
+    </body>
+</html>
+
+
+
